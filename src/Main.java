@@ -136,6 +136,38 @@ public class Main {
 
                     break;
                 }
+                case "4" ->{
+                    boolean existe = false;
+                    while (!existe) {
+                        System.out.println("Lugares Disponibles:" + lugares);
+                        System.out.println("Ingrese el lugar de Origen");
+                        origen = scan.nextLine();
+
+                        if (lugares.contains(origen)) {
+                            existe = true;
+                        } else {
+                            System.out.println("Ingrese un lugar Valido");
+                        }
+                    }
+                    existe = false;
+                    while (!existe) {
+                        System.out.println("Lugares Disponibles:" + lugares);
+                        System.out.println("Ingrese el lugar de Destino");
+                        destino = scan.nextLine();
+
+                        if (lugares.contains(destino)) {
+                            existe = true;
+                        } else {
+                            System.out.println("Ingrese un lugar Valido");
+                        }
+                    }
+                    int q = lugares.indexOf(origen);
+                    int r = lugares.indexOf(destino);
+
+                    matriz[q][r] = 1000000;
+                    copiar(matriz, M);
+                    fl.recacl(M);
+                }
                 case "5" -> bandera = false;
             }
         }
