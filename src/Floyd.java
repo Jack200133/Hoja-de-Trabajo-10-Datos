@@ -4,30 +4,31 @@ import java.util.Arrays;
 public class Floyd {
 
     Integer[][] P;
-
+    Integer[][] M;
     public Integer[][] recacl(Integer[][] Matrix){
         P = new Integer[Matrix.length][Matrix.length];
+        M = Matrix;
         for (int x = 0; x < P.length; x++) {
             for (int y = 0; y < P.length; y++) {
                 P[x][y]= 0;
             }
         }
-        for (int k = 0; k < Matrix.length; k++) {
-            for (int i = 0; i < Matrix.length; i++) {
-                for (int j = 0; j < Matrix.length; j++) {
-                    int cambio = Matrix[i][j];
-                    int a = Matrix[i][k];
-                    int b = Matrix[k][j];
+        for (int k = 0; k < M.length; k++) {
+            for (int i = 0; i < M.length; i++) {
+                for (int j = 0; j < M.length; j++) {
+                    int cambio = M[i][j];
+                    int a = M[i][k];
+                    int b = M[k][j];
 
                     if(cambio>a+b){
-                        Matrix[i][j]=(a+b);
+                        M[i][j]=(a+b);
                         P[i][j] = k;
                     }
                 }
             }
         }
 
-        return Matrix;
+        return M;
     }
 
 
