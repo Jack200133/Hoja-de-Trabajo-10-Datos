@@ -99,6 +99,9 @@ public class Main {
 
                     break;
                 }
+                case "2" ->{
+                    fl.centro(M,lugares);
+                }
                 case "3" -> {
                     boolean existe = false;
                     while (!existe) {
@@ -167,6 +170,7 @@ public class Main {
                     matriz[q][r] = 1000000;
                     copiar(matriz, M);
                     fl.recacl(M);
+                    PrintMatriz(lugares, M, res);
                 }
                 case "5" -> bandera = false;
             }
@@ -192,6 +196,7 @@ public class Main {
             res.append("\n");
         }
         System.out.println(res);
+        res.delete(0,res.length());
     }
 
     private static void buscar(ArrayList lugares, GrafoD g, String[] dato) {
