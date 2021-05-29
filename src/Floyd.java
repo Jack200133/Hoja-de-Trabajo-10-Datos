@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 public class Floyd {
 
-    Integer[][] P;
-    Integer[][] M;
+    private Integer[][] P;
+    private Integer[][] M;
     public Integer[][] recacl(Integer[][] Matrix){
         P = new Integer[Matrix.length][Matrix.length];
         M = Matrix;
