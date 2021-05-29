@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GrafoD extends Grafo {
     protected int numV, numA;
@@ -39,6 +40,116 @@ public class GrafoD extends Grafo {
         if ( !existeArista(i,j) ) { elArray[i].insertar(new Adyacente(j,p)); numA++; }
     }
     public ListaConPI<Adyacente> adyacentesDe(int i) {return elArray[i];}
+
+    public void BorrarValores(Integer[][] matriz,ArrayList lugares){
+        Scanner scan = new Scanner(System.in);
+        String origen ="";
+        String destino="";
+        boolean existe = false;
+        while (!existe) {
+            System.out.println("Lugares Disponibles:" + lugares);
+            System.out.println("Ingrese el lugar de Origen");
+            origen = scan.nextLine();
+
+            if (lugares.contains(origen)) {
+                existe = true;
+            } else {
+                System.out.println("Ingrese un lugar Valido");
+            }
+        }
+        existe = false;
+        while (!existe) {
+            System.out.println("Lugares Disponibles:" + lugares);
+            System.out.println("Ingrese el lugar de Destino");
+            destino = scan.nextLine();
+
+            if (lugares.contains(destino)) {
+                existe = true;
+            } else {
+                System.out.println("Ingrese un lugar Valido");
+            }
+        }
+        int q = lugares.indexOf(origen);
+        int r = lugares.indexOf(destino);
+
+        matriz[q][r] = 1000000;
+    }
+
+    public void CambiarValores(Integer[][] matriz, ArrayList lugares){
+        Scanner scan = new Scanner(System.in);
+        boolean existe = false;
+        String origen ="";
+        String destino="";
+        while (!existe) {
+            System.out.println("Lugares Disponibles:" + lugares);
+            System.out.println("Ingrese el lugar de Origen");
+            origen = scan.nextLine();
+
+            if (lugares.contains(origen)) {
+                existe = true;
+            } else {
+                System.out.println("Ingrese un lugar Valido");
+            }
+        }
+        existe = false;
+        while (!existe) {
+            System.out.println("Lugares Disponibles:" + lugares);
+            System.out.println("Ingrese el lugar de Destino");
+            destino = scan.nextLine();
+
+            if (lugares.contains(destino)) {
+                existe = true;
+            } else {
+                System.out.println("Ingrese un lugar Valido");
+            }
+        }
+        System.out.println("Ingrese el valor del arco");
+        int valor = scan.nextInt();
+
+        int q = lugares.indexOf(origen);
+        int r = lugares.indexOf(destino);
+        matriz[q][r] = valor;
+    }
+
+    public void BorrarValores(Integer[][] matriz){
+        ArrayList list = new ArrayList();
+        list.add("1");
+        list.add("3");
+        list.add("2");
+        list.add("5");
+        list.add("6");
+        String origen ="";
+        String destino="";
+
+        origen = "1";
+        destino = "2";
+
+        int q = list.indexOf(origen);
+        int r = list.indexOf(destino);
+
+
+        matriz[q][r] = 1000000;
+    }
+
+    public void CambiarValores(Integer[][] matriz){
+        ArrayList list = new ArrayList();
+        list.add("1");
+        list.add("3");
+        list.add("2");
+        list.add("5");
+        list.add("6");
+        String origen ="";
+        String destino="";
+
+        origen = "1";
+        destino = "2";
+        int valor = 9;
+
+        int q = list.indexOf(origen);
+        int r = list.indexOf(destino);
+
+        matriz[q][r] = valor;
+    }
 
     public String toString(ArrayList lug){
         StringBuilder res = new StringBuilder();

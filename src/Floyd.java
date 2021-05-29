@@ -42,7 +42,7 @@ public class Floyd {
         }
     }
 
-    public  void centro(Integer [][] M2,ArrayList lug)
+    public String centro(Integer [][] M2,ArrayList lug)
     {
         HashMap<Integer,Integer> posiciones = new HashMap<>();
         int x=0,y=0;
@@ -68,5 +68,7 @@ public class Floyd {
 
 
         System.out.println("\nEl centro del grafo es: -"+ lug.get(posiciones.get(menor2)));
+
+        return (String) lug.get(posiciones.get(menor2));
     }
 }

@@ -103,71 +103,15 @@ public class Main {
                     fl.centro(M,lugares);
                 }
                 case "3" -> {
-                    boolean existe = false;
-                    while (!existe) {
-                        System.out.println("Lugares Disponibles:" + lugares);
-                        System.out.println("Ingrese el lugar de Origen");
-                        origen = scan.nextLine();
 
-                        if (lugares.contains(origen)) {
-                            existe = true;
-                        } else {
-                            System.out.println("Ingrese un lugar Valido");
-                        }
-                    }
-                    existe = false;
-                    while (!existe) {
-                        System.out.println("Lugares Disponibles:" + lugares);
-                        System.out.println("Ingrese el lugar de Destino");
-                        destino = scan.nextLine();
-
-                        if (lugares.contains(destino)) {
-                            existe = true;
-                        } else {
-                            System.out.println("Ingrese un lugar Valido");
-                        }
-                    }
-                    System.out.println("Ingrese el valor del arco");
-                    int valor = scan.nextInt();
-
-                    int q = lugares.indexOf(origen);
-                    int r = lugares.indexOf(destino);
-                    matriz[q][r] = valor;
+                    g.CambiarValores(matriz,lugares);
                     copiar(matriz, M);
                     fl.recacl(M);
                     PrintMatriz(lugares, M, res);
 
-                    break;
                 }
                 case "4" ->{
-                    boolean existe = false;
-                    while (!existe) {
-                        System.out.println("Lugares Disponibles:" + lugares);
-                        System.out.println("Ingrese el lugar de Origen");
-                        origen = scan.nextLine();
-
-                        if (lugares.contains(origen)) {
-                            existe = true;
-                        } else {
-                            System.out.println("Ingrese un lugar Valido");
-                        }
-                    }
-                    existe = false;
-                    while (!existe) {
-                        System.out.println("Lugares Disponibles:" + lugares);
-                        System.out.println("Ingrese el lugar de Destino");
-                        destino = scan.nextLine();
-
-                        if (lugares.contains(destino)) {
-                            existe = true;
-                        } else {
-                            System.out.println("Ingrese un lugar Valido");
-                        }
-                    }
-                    int q = lugares.indexOf(origen);
-                    int r = lugares.indexOf(destino);
-
-                    matriz[q][r] = 1000000;
+                    g.BorrarValores(matriz,lugares);
                     copiar(matriz, M);
                     fl.recacl(M);
                     PrintMatriz(lugares, M, res);
