@@ -7,7 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
         ArrayList lugares = new ArrayList<String>();
-        GrafoD g = new GrafoD(30);
+        int lugt =  leer(lugares);
+        System.out.println(lugt);
+        GrafoD g = new GrafoD(lugt);
 
        leer(lugares,g);
 
@@ -113,6 +115,7 @@ public class Main {
                 case "4" ->{
                     g.BorrarValores(matriz,lugares);
                     copiar(matriz, M);
+                    System.out.println(Arrays.deepToString(matriz));
                     fl.recacl(M);
                     PrintMatriz(lugares, M, res);
                 }
@@ -184,6 +187,39 @@ public class Main {
         }catch (Exception e) {
             System.out.println("Archivo no encontrado");
             e.printStackTrace();
+        }
+    }
+
+    private static int leer(ArrayList lugares){
+        try {
+            File myObj = new File("guategrafo.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] temp = data.split("\\s+");
+                buscar(lugares,temp);
+            }
+            myReader.close();
+        }catch (Exception e) {
+            System.out.println("Archivo no encontrado");
+            e.printStackTrace();
+        }
+        System.out.println(lugares);
+        return lugares.size();
+    }
+
+    private static void buscar(ArrayList lugares, String[] dato) {
+        if(lugares.contains(dato[0])){
+            if(lugares.contains(dato[1])){
+            }else{
+                lugares.add(dato[1]);
+            }
+        }else{
+            lugares.add(dato[0]);
+            if(lugares.contains(dato[1])){
+            }else{
+                lugares.add(dato[1]);
+            }
         }
     }
 

@@ -1,12 +1,11 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Floyd {
 
     private Integer[][] P;
     private Integer[][] M;
-    public Integer[][] recacl(Integer[][] Matrix){
+    public void recacl(Integer[][] Matrix){
         P = new Integer[Matrix.length][Matrix.length];
         M = Matrix;
         for (int x = 0; x < P.length; x++) {
@@ -29,7 +28,6 @@ public class Floyd {
             }
         }
 
-        return M;
     }
 
 
